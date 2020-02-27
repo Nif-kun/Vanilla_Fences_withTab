@@ -1,0 +1,34 @@
+﻿»Minor update (v1.5.8) [02/21/20]
+-Updated to 1.1
+
+»Minor update (v1.5.7) [01/29/20]
+-Added German translation made by Erdnussbrot.
+
+»Gates update (v1.5.6) [12/20/19]
+-Fixed the roof support of fences. There were instances where pawns built roof on them even though it was disabled.
+
+»Gates update (v1.5.5) [09/28/19]
+-Doors that are held open no longer slow down pawns.
+
+»Gates update (v1.5) [07/31/19]
+-Added Gates for: Closeboard, Picket, Solid, Farm, Bar, and Chainlink fence.
+-Added settings for Gates: Cost, MaxHitPoints, and Beauty.
+-Removed Fence category and moved all fences to Structures.
+
+»Minor update (v1.1.5) [07/31/19]
+-Fixed the problem with pathcost and passability textfield in settings. They copied each others value. Thanks to Meet the Zombie Soldier for noticing. 
+-Added two addition options in settings: Support roof and Link to walls.
+
+»Settings Update! (v1.1.0)[07/26/19]
+-Added mod settings that allows you to modify: Cost, BaseHP, Fill(%), PathCost, Passability.
+-Closeboard now costs 3 wood.
+-Picket fence beauty is now 0.
+-Fences can no longer overlap zones. (I don't think it ever did.)
+-pathCost has been implemented to all fences.
+-MaxHitPoint of Brick fence (short) is increased to 75. (Previously 70)
+-Description of each fence has been updated
+-Implemented .Translate() for people who wants to translate.
+-Damagedata (for the texture of damage) has been slightly improved. No more box like damages.
+-Wooden and steel fences have been separated inorder to be compatible with mods that add more materials.
+
+»Terrain requirement of brick fences is now Medium. (07/15/19)

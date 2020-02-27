@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Fence Desc -->
+  <CloseboardDesc>Ein hoher, stabiler Zaun, der groß genug ist, um als Mauer zu gelten.</CloseboardDesc>
+  <SolidDesc>Ein Zaun aus Holzbrettern, der hoch genug war, um Kaninchen in Schach zu halten.</SolidDesc>
+  <PicketDesc>Ein dekorativer Zaun, der Ihre grüne Seite des Lebens zur Geltung bringt.</PicketDesc>
+  <FarmDesc>Ein Farmzaun, der selbst den klügsten Thrumbo zurückhalten kann.</FarmDesc>
+  <BarDesc>Ein sehr restriktiver Zaun, der verwendet wird, um Land zu teilen ... oder als Gefängnisstangen.</BarDesc>
+  <TallChainlinkDesc>Ein hoher Stahlgitterzaun, durch den man leicht hindurchschießen kann.</TallChainlinkDesc>
+  <ShortBrickDesc>Ein kurzer und stabiler Zaun, der sich gut in die Landschaft einfügt. </ShortBrickDesc>
+  <TallBrickDesc>Ein befestigter Steinzaun, der Überfällen standhalten kann.</TallBrickDesc>
+
+  <!-- Fence Gate Desc -->
+  <CloseboardGateDesc>Eine hohe, stabile Zauntür, die groß genug ist, um als Mauer zu gelten.</CloseboardGateDesc>
+  <SolidGateDesc>Eine Zauntür aus Holzbrettern, der hoch genug war, um Kaninchen in Schach zu halten.</SolidGateDesc>
+  <PicketGateDesc>Eine dekorative Zauntür, der Ihre grüne Seite des Lebens zur Geltung bringt.</PicketGateDesc>
+  <FarmGateDesc>Eine Farmzauntür, die selbst den klügsten Thrumbo zurückhalten kann.</FarmGateDesc>
+  <BarGateDesc>Eine sehr restriktive Zauntür, die verwendet wird, um Land zu teilen ... oder als Gefängnistür.</BarGateDesc>
+  <TallChainlinkGateDesc>Eine hohe Stahlgitterzauntür, durch die man leicht hindurchschießen kann.</TallChainlinkGateDesc>
+  <ShortBrickGateDesc>Eine kurze und stabile Zauntür, die sich gut in die Landschaft einfügt.</ShortBrickGateDesc>
+  <TallBrickGateDesc>Eine befestigte Steinzauntür, die Überfällen standhalten kann.</TallBrickGateDesc>
+
+  <!--Settings Desc-->
+  <RestartNote>HINWEIS: NEUSTARTEN, UM ÄNDERUNGEN ANZUWENDEN</RestartNote>
+  <CostDesc>Kosten: Die Menge an Ressourcen, die benötigt wird, um einen Zaun zu bauen.</CostDesc>
+  <MHPDesc>BasisHP: Die Basis-HP eines Zauns, der mit dem Materialmultiplikator multipliziert wird.</MHPDesc>
+  <BDesc>Schönheit: Wie schön es ist, einen Zaun anzuschauen.</BDesc>
+  <FPDesc>Deckung (%): Der Prozentsatz der Deckung, die ein Zaun bietet. HINWEIS: Sandsack hat 65%</FPDesc>
+  <PCDesc>Bewegung: Die Bewegungskosten, die erforderlich sind, um einen Zaun zu durchqueren.</PCDesc>
+  <PDesc>Passierbarkeit: Der Zustand eines Zauns, in dem er passierbar ist. \ n 1 = Unpassierbar \ n 2 = Nur Durchgang \ n 3 = Dachfähig</PDesc>
+
+  <!--Extra Options-->
+  <FenceLinkable>\nZulassen, dass Zäune mit Wänden verbunden werden: </FenceLinkable>
+  <FenceRoofable>\nZulassen, dass Zäune das Dach stützen: </FenceRoofable>
+
+</LanguageData>

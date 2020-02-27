@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+<name>Vanilla Fences (Fence Tab)</name>
+  <author>Nif</author>
+  <packageId>Nif.VanillaFencesTab</packageId>
+  <supportedVersions>
+    <li>1.1</li>
+    <li>1.0</li>
+  </supportedVersions>
+  <description>A fence mod that provides 8 types of fences that blends nicely with the vanilla aesthetic. All of which can be used as defense cover and can be easily modified with the mod settings, along with other options.</description>
+</ModMetaData>

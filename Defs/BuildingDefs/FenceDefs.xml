@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!--
+
+░ ░ ░ ░ █▀▀ █▀▀ █▀▀▄ █▀▀ █▀▀   █▀▀▄ █▀▀█ █▀▀ █▀▀ ░ ░ ░ ░
+▀ ▀ ▀ ▀ █▀▀ █▀▀ █░░█ █░░ █▀▀   █▀▀▄ █▄▄█ ▀▀█ █▀▀ ▀ ▀ ▀ ▀
+░ ░ ░ ░ ▀░░ ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀   ▀▀▀░ ▀░░▀ ▀▀▀ ▀▀▀ ░ ░ ░ ░    
+<==================FENCE_BASE===============-->
+    <ThingDef Name="FenceExtBuildingBase" Abstract="true">
+        <thingClass>Building</thingClass>
+        <category>Building</category>
+        <designationCategory>Fence</designationCategory>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <selectable>true</selectable>   
+        <rotatable>false</rotatable>
+        <holdsRoof>false</holdsRoof>
+        <blockWind>false</blockWind>
+        <coversFloor>false</coversFloor>
+        <useHitPoints>true</useHitPoints>
+        <blockLight>false</blockLight>
+        <tickerType>Never</tickerType>
+        <canOverlapZones>false</canOverlapZones>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <placingDraggableDimensions>1</placingDraggableDimensions>
+        <pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>        
+        <pathCost>40</pathCost>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <passability>Impassable</passability>
+        <filthLeaving>Filth_RubbleBuilding</filthLeaving>     
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <damageData>
+                <rect>(0,0.296875,0.796875,0.503125)</rect>
+            </damageData>
+        </graphicData>
+        <building>
+            <allowAutoroof>false</allowAutoroof>
+            <isInert>true</isInert>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <damageMultipliers>
+            <li>
+                <damageDef>Bomb</damageDef>
+                <multiplier>2</multiplier>
+            </li>
+        </damageMultipliers>      
+    </ThingDef>
+
+
+<!--
+
+░ ░ ░ ░ █░░░█ █▀▀█ █▀▀█ █▀▀▄ █▀▀ █▀▀▄ ░ ░ ░ ░
+▀ ▀ ▀ ▀ █▄█▄█ █░░█ █░░█ █░░█ █▀▀ █░░█ ▀ ▀ ▀ ▀
+░ ░ ░ ░ ░▀░▀░ ▀▀▀▀ ▀▀▀▀ ▀▀▀░ ▀▀▀ ▀░░▀ ░ ░ ░ ░
+<==============WOOD SECTION==============-->
+<!--
+[BASE STAT FOR WOOD]
+MAXHitPoints:200
+Flammability:1(100%)
+Cost:1Wood
+
+[NOTE]
+<fillPercent> - cover percent 1 = 100%
+Sandbag = 0.65(65%)
+-->
+
+<!--==============/WOOD PARENT/==============-->
+    <ThingDef ParentName="FenceExtBuildingBase" Name="WoodenFenceBase" Abstract="True">
+        <description>Wooden fencing to protect your greener side of land.</description>
+        <soundImpactDefault>BulletImpact_Wood</soundImpactDefault>
+        <statBases>
+            <Mass>1</Mass>
+            <Flammability>1</Flammability>
+            <WorkToBuild>135</WorkToBuild>
+        </statBases>
+        <stuffCategories>
+          <li>Woody</li>
+        </stuffCategories>
+        <costStuffCount>2</costStuffCount> 
+        <graphicData>
+            <linkType>Basic</linkType>
+        </graphicData>
+        <repairEffect>Repair</repairEffect>
+    </ThingDef>
+<!--==============/WOOD PARENT END/==============-->
+
+    <!--[CLOSEBOARD FENCE]-->
+    <ThingDef ParentName="WoodenFenceBase">
+        <defName>Closeboard</defName>
+        <label>Closeboard Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <costStuffCount>3</costStuffCount> 
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>1</fillPercent>
+        <uiIconPath>Things/Fences/Closeboard_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Closeboard</texPath>
+            <linkFlags>
+                <li>Custom1</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Closeboard_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+    <!--[CLOSEBOARD GATE]-->
+    <ThingDef ParentName="WoodenFenceBase" Name="CloseboardGateHori">
+	    <thingClass>Building_Door</thingClass>
+	    <defName>CloseboardGateHori</defName>
+	    <label>Closeboard Gate(Horizontal)</label>
+	    <altitudeLayer>DoorMoveable</altitudeLayer>
+	    <costStuffCount>3</costStuffCount>
+	    <pathCost>0</pathCost>
+	    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	    <statBases>
+	    	<MaxHitPoints>100</MaxHitPoints>
+	    	<Beauty>0</Beauty>
+	    </statBases>
+	    <fillPercent>1</fillPercent>
+	    <drawerType>RealtimeOnly</drawerType>
+	    <tickerType>Normal</tickerType>
+	    <passability>Standable</passability>
+	    <graphicData>
+	      	<texPath>Things/Fences/CloseboardGate_Hori</texPath>
+	      	<graphicClass>Graphic_Single</graphicClass>
+	      	<linkType>None</linkType>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/CloseboardGate_icon_Hori</uiIconPath>
+	    <building>
+	      	<canPlaceOverWall>true</canPlaceOverWall>
+	      	<soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+	      	<soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+	      	<blueprintClass>Blueprint_Door</blueprintClass>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/CloseboardGate_blueprint_Hori</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	    <comps>
+	      	<li Class="CompProperties_Forbiddable"/>
+	    </comps>
+	    <placeWorkers>
+	      	<li>PlaceWorker_DoorLearnOpeningSpeed</li>
+	    </placeWorkers>
+  	</ThingDef>
+
+  	<ThingDef ParentName="CloseboardGateHori">
+	    <defName>CloseboardGateVerti</defName>
+	    <label>Closeboard Gate(Vertical)</label>
+	    <graphicData>
+	      	<texPath>Things/Fences/CloseboardGate_Verti</texPath>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/CloseboardGate_icon_Verti</uiIconPath>
+	    <building>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/CloseboardGate_blueprint_Verti</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+  	</ThingDef>
+
+    <!--[SOLID FENCE]-->
+    <ThingDef ParentName="WoodenFenceBase">
+        <defName>Solid</defName>
+        <label>Solid Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>70</MaxHitPoints>
+            <Beauty>1</Beauty>
+        </statBases>
+        <fillPercent>0.25</fillPercent>
+        <uiIconPath>Things/Fences/Solidfence_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Solidfence</texPath>
+            <linkFlags>
+                <li>Custom2</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Solidfence_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+    <!--[SOLID GATE]-->
+	<ThingDef ParentName="WoodenFenceBase" Name="SolidGateHori">
+		<thingClass>Building_Door</thingClass>
+	    <defName>SolidGateHori</defName>
+	    <label>Solid Gate(Horizontal)</label>
+	    <altitudeLayer>DoorMoveable</altitudeLayer>
+	    <pathCost>0</pathCost>
+	    <statBases>
+		    <MaxHitPoints>70</MaxHitPoints>
+		    <Beauty>1</Beauty>
+	    </statBases>
+	    <fillPercent>0.25</fillPercent>
+	    <drawerType>RealtimeOnly</drawerType>
+	    <tickerType>Normal</tickerType>
+	    <passability>Standable</passability>
+	    <graphicData>
+	      	<texPath>Things/Fences/SolidGate_Hori</texPath>
+	      	<graphicClass>Graphic_Single</graphicClass>
+	      	<linkType>None</linkType>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/SolidGate_icon_Hori</uiIconPath>
+	    <building>
+	      	<canPlaceOverWall>true</canPlaceOverWall>
+	      	<soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+	      	<soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+	      	<blueprintClass>Blueprint_Door</blueprintClass>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/SolidGate_blueprint_Hori</texPath>
+	     	</blueprintGraphicData>
+	    </building>
+	    <comps>
+	    	<li Class="CompProperties_Forbiddable"/>
+	    </comps>
+	    <placeWorkers>
+	      	<li>PlaceWorker_DoorLearnOpeningSpeed</li>
+	    </placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="SolidGateHori">
+		<defName>SolidGateVerti</defName>
+	    <label>Solid Gate(Vertical)</label>
+	    <graphicData>
+	      	<texPath>Things/Fences/SolidGate_Verti</texPath>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/SolidGate_icon_Verti</uiIconPath>
+	    <building>
+	      	<blueprintGraphicData>
+	      		<texPath>Things/Fences/SolidGate_blueprint_Verti</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	</ThingDef>
+
+
+    <!--[PICKET FENCE]-->
+    <ThingDef ParentName="WoodenFenceBase">
+        <defName>Picket</defName>
+        <label>Picket Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>55</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>0.20</fillPercent>
+        <uiIconPath>Things/Fences/Picketfence_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Picketfence</texPath>
+            <linkFlags>
+                <li>Custom3</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Picketfence_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+    <!--[PICKET GATE]-->
+	<ThingDef ParentName="WoodenFenceBase" Name="PicketGateHori">
+		<thingClass>Building_Door</thingClass>
+	    <defName>PicketGateHori</defName>
+	    <label>Picket Gate(Horizontal)</label>
+	    <altitudeLayer>DoorMoveable</altitudeLayer>
+	    <pathCost>0</pathCost>
+	    <statBases>
+		    <MaxHitPoints>70</MaxHitPoints>
+		    <Beauty>1</Beauty>
+	    </statBases>
+	    <fillPercent>0.25</fillPercent>
+	    <drawerType>RealtimeOnly</drawerType>
+	    <tickerType>Normal</tickerType>
+	    <passability>Standable</passability>
+	    <graphicData>
+	      	<texPath>Things/Fences/PicketGate_Hori</texPath>
+	      	<graphicClass>Graphic_Single</graphicClass>
+	      	<linkType>None</linkType>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/PicketGate_icon_Hori</uiIconPath>
+	    <building>
+	      	<canPlaceOverWall>true</canPlaceOverWall>
+	      	<soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+	      	<soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+	      	<blueprintClass>Blueprint_Door</blueprintClass>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/PicketGate_blueprint_Hori</texPath>
+	     	</blueprintGraphicData>
+	    </building>
+	    <comps>
+	    	<li Class="CompProperties_Forbiddable"/>
+	    </comps>
+	    <placeWorkers>
+	      	<li>PlaceWorker_DoorLearnOpeningSpeed</li>
+	    </placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="PicketGateHori">
+		<defName>PicketGateVerti</defName>
+	    <label>Picket Gate(Vertical)</label>
+	    <graphicData>
+	      	<texPath>Things/Fences/PicketGate_Verti</texPath>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/PicketGate_icon_Verti</uiIconPath>
+	    <building>
+	      	<blueprintGraphicData>
+	      		<texPath>Things/Fences/PicketGate_blueprint_Verti</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	</ThingDef>
+
+
+    <!--[FARM FENCE]-->
+    <ThingDef ParentName="WoodenFenceBase">
+        <defName>Farm</defName>
+        <label>Farm Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>55</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>0.20</fillPercent>
+        <uiIconPath>Things/Fences/Farmfence_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Farmfence</texPath>
+            <linkFlags>
+                <li>Custom4</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Farmfence_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+    <!--[FARM GATE]-->
+	<ThingDef ParentName="WoodenFenceBase" Name="FarmGateHori">
+		<thingClass>Building_Door</thingClass>
+		<defName>FarmGateHori</defName>
+		<label>Farm Gate(Horizontal)</label>
+		<altitudeLayer>DoorMoveable</altitudeLayer>
+		<pathCost>0</pathCost>
+		<statBases>
+	    	<MaxHitPoints>55</MaxHitPoints>
+	    	<Beauty>0</Beauty>
+	    </statBases>
+	    <fillPercent>0.20</fillPercent>
+		<drawerType>RealtimeOnly</drawerType>
+		<tickerType>Normal</tickerType>
+		<passability>Standable</passability>
+		<graphicData>
+	    	<texPath>Things/Fences/FarmGate_Hori</texPath>
+	      	<graphicClass>Graphic_Single</graphicClass>
+	      	<linkType>None</linkType>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/FarmGate_icon_Hori</uiIconPath>
+	    <building>
+	      	<canPlaceOverWall>true</canPlaceOverWall>
+	      	<soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+	      	<soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+	      	<blueprintClass>Blueprint_Door</blueprintClass>
+	      	<blueprintGraphicData>
+	      	<texPath>Things/Fences/FarmGate_blueprint_Hori</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	    <comps>
+	      	<li Class="CompProperties_Forbiddable"/>
+	    </comps>
+	    <placeWorkers>
+	      	<li>PlaceWorker_DoorLearnOpeningSpeed</li>
+	    </placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="FarmGateHori">
+	    <defName>FarmGateVerti</defName>
+	    <label>Farm Gate(Vertical)</label>
+	    <graphicData>
+	      	<texPath>Things/Fences/FarmGate_Verti</texPath>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/FarmGate_icon_Verti</uiIconPath>
+	    <building>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/FarmGate_blueprint_Verti</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	</ThingDef>
+
+<!--
+Note: discontinued until I find a way to make details noticable—without the need of camera+ (possibly never, though I would like to have one)
+
+    [FULL LATTICE FENCE]
+    <ThingDef ParentName="WoodenFenceBase">
+        <defName>FullLattice</defName>
+        <label>Lattice Fence (Full)</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>45</MaxHitPoints>
+            <Beauty>1</Beauty>
+        </statBases>
+        <fillPercent>0.15</fillPercent>
+        <uiIconPath>Things/Fences/WoodFenceIco</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/WoodFence</texPath>
+            <linkFlags>
+                <li>Custom4</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/WoodFence_Blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+    [HALF LATTICE FENCE]
+    <ThingDef ParentName="WoodenFenceBase">
+        <defName>TopLattice</defName>
+        <label>Lattice Fence (Top)</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+            <Beauty>1</Beauty>
+        </statBases>
+        <fillPercent>1</fillPercent>
+        <uiIconPath>Things/Fences/WoodFenceIco</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/WoodFence</texPath>
+            <linkFlags>
+                <li>Custom5</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/WoodFence_Blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>  
+-->
+
+<!--
+
+░ ░ ░ ░ █▀▄▀█ █▀▀ ▀▀█▀▀ █▀▀█ █░░ ░ ░ ░ ░
+▀ ▀ ▀ ▀ █░▀░█ █▀▀ ░░█░░ █▄▄█ █░░ ▀ ▀ ▀ ▀
+░ ░ ░ ░ ▀░░░▀ ▀▀▀ ░░▀░░ ▀░░▀ ▀▀▀ ░ ░ ░ ░
+<==============METAL SECTION==============-->
+
+<!--==============/METAL PARENT/==============-->
+    <ThingDef ParentName="FenceExtBuildingBase" Name="MetalFenceBase" Abstract="True">
+        <description>Metal fencing to protect your greener side of land.</description>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <statBases>
+            <Mass>1.5</Mass>
+            <Flammability>0.20</Flammability>
+            <WorkToBuild>150</WorkToBuild>
+        </statBases>
+        <stuffCategories>
+          <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>2</costStuffCount> 
+        <graphicData>
+            <linkType>Basic</linkType>
+        </graphicData>
+        <repairEffect>Repair</repairEffect>
+    </ThingDef>
+<!--==============/METAL PARENT END/==============-->
+
+    <!--[BAR FENCE]-->
+    <ThingDef ParentName="MetalFenceBase">
+        <defName>Bar</defName>
+        <label>Bar Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>75</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>0.20</fillPercent>
+        <uiIconPath>Things/Fences/Barfence_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Barfence</texPath>
+            <linkFlags>
+                <li>Custom5</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Barfence_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+	<!--[BAR GATE]-->
+	<ThingDef ParentName="MetalFenceBase" Name="BarGateHori">
+		<thingClass>Building_Door</thingClass>
+		<defName>BarGateHori</defName>
+		<label>Bar Gate(Horizontal)</label>
+		<altitudeLayer>DoorMoveable</altitudeLayer>
+		<pathCost>0</pathCost>
+		<statBases>
+	    	<MaxHitPoints>75</MaxHitPoints>
+	    	<Beauty>0</Beauty>
+	    </statBases>
+	    <fillPercent>0.20</fillPercent>
+		<drawerType>RealtimeOnly</drawerType>
+		<tickerType>Normal</tickerType>
+		<passability>Standable</passability>
+		<graphicData>
+			<texPath>Things/Fences/BarGate_Hori</texPath>
+	      	<graphicClass>Graphic_Single</graphicClass>
+	      	<linkType>None</linkType>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/BarGate_icon_Hori</uiIconPath>
+	    <building>
+	      	<canPlaceOverWall>true</canPlaceOverWall>
+	      	<soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+	      	<soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+	      	<blueprintClass>Blueprint_Door</blueprintClass>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/BarGate_blueprint_Hori</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	    <comps>
+	      	<li Class="CompProperties_Forbiddable"/>
+	    </comps>
+	    <placeWorkers>
+	      	<li>PlaceWorker_DoorLearnOpeningSpeed</li>
+	    </placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="BarGateHori">
+	    <defName>BarGateVerti</defName>
+	    <label>Bar Gate(Vertical)</label>
+	    <graphicData>
+	      	<texPath>Things/Fences/BarGate_Verti</texPath>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/BarGate_icon_Verti</uiIconPath>
+	    <building>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/BarGate_blueprint_Verti</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	</ThingDef>
+<!--
+Note: discontinued until I find a way to make details noticable—without the need of camera+ (possibly never, though I would like to have one)
+
+    [SPIKED BAR FENCE]
+    <ThingDef ParentName="MetalFenceBase">
+        <defName>SpikedBar</defName>
+        <label>Spiked Bar Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>75</MaxHitPoints>
+            <Beauty>1</Beauty>
+        </statBases>
+        <fillPercent>0.20</fillPercent>
+        <uiIconPath>Things/Fences/WoodFenceIco</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/WoodFence</texPath>
+            <linkFlags>
+                <li>Custom8</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/WoodFence_Blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+
+    [SHORT CHAINLINK FENCE]
+    <ThingDef ParentName="MetalFenceBase">
+        <defName>ShortChainLink</defName>
+        <label>Chainlink Fence (Short)</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>0.10</fillPercent>
+        <uiIconPath>Things/Fences/WoodFenceIco</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/WoodFence</texPath>
+            <linkFlags>
+                <li>Custom9</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/WoodFence_Blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+-->
+
+    <!--[TALL CHAINLINK FENCE]-->
+    <ThingDef ParentName="MetalFenceBase" Name="Chainlink">
+        <defName>TallChainLink</defName>
+        <label>Chainlink Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>70</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>0.10</fillPercent>
+        <uiIconPath>Things/Fences/Chainlinkfence_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Chainlinkfence</texPath>
+            <linkFlags>
+                <li>Custom6</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Chainlinkfence_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+	<!--[CHAINLINK GATE]-->
+	<ThingDef ParentName="MetalFenceBase" Name="ChainlinkGateHori">
+		<thingClass>Building_Door</thingClass>
+	    <defName>ChainlinkGateHori</defName>
+	    <label>Chainlink Gate(Horizontal)</label>
+	    <altitudeLayer>DoorMoveable</altitudeLayer>
+	    <pathCost>0</pathCost>
+	    <statBases>
+		    <MaxHitPoints>70</MaxHitPoints>
+		    <Beauty>1</Beauty>
+	    </statBases>
+	    <fillPercent>0.25</fillPercent>
+	    <drawerType>RealtimeOnly</drawerType>
+	    <tickerType>Normal</tickerType>
+	    <passability>Standable</passability>
+	    <graphicData>
+	      	<texPath>Things/Fences/ChainlinkGate_Hori</texPath>
+	      	<graphicClass>Graphic_Single</graphicClass>
+	      	<linkType>None</linkType>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/ChainlinkGate_icon_Hori</uiIconPath>
+	    <building>
+	      	<canPlaceOverWall>true</canPlaceOverWall>
+	      	<soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+	      	<soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+	      	<blueprintClass>Blueprint_Door</blueprintClass>
+	      	<blueprintGraphicData>
+	        	<texPath>Things/Fences/ChainlinkGate_blueprint_Hori</texPath>
+	     	</blueprintGraphicData>
+	    </building>
+	    <comps>
+	    	<li Class="CompProperties_Forbiddable"/>
+	    </comps>
+	    <placeWorkers>
+	      	<li>PlaceWorker_DoorLearnOpeningSpeed</li>
+	    </placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="ChainlinkGateHori">
+		<defName>ChainlinkGateVerti</defName>
+	    <label>Chainlink Gate(Vertical)</label>
+	    <graphicData>
+	      	<texPath>Things/Fences/ChainlinkGate_Verti</texPath>
+	    </graphicData>
+	    <uiIconPath>Things/Fences/ChainlinkGate_icon_Verti</uiIconPath>
+	    <building>
+	      	<blueprintGraphicData>
+	      		<texPath>Things/Fences/ChainlinkGate_blueprint_Verti</texPath>
+	      	</blueprintGraphicData>
+	    </building>
+	</ThingDef>
+<!--
+
+░ ░ ░ ░ █▀▀ ▀▀█▀▀ █▀▀█ █▀▀▄ █▀▀ ░ ░ ░ ░
+▀ ▀ ▀ ▀ ▀▀█ ░░█░░ █░░█ █░░█ █▀▀ ▀ ▀ ▀ ▀
+░ ░ ░ ░ ▀▀▀ ░░▀░░ ▀▀▀▀ ▀░░▀ ▀▀▀ ░ ░ ░ ░
+<==============STONE SECTION==============-->
+
+<!--==============/STONE PARENT/==============-->
+    <ThingDef ParentName="FenceExtBuildingBase" Name="StoneFenceBase" Abstract="True">
+        <description>Stone fencing to protect your greener side of land.</description>
+        <soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <statBases>
+            <Mass>2</Mass>
+            <Flammability>0</Flammability>
+            <WorkToBuild>180</WorkToBuild>
+        </statBases>
+        <stuffCategories>
+          <li>Stony</li>
+        </stuffCategories>      
+        <graphicData>
+            <linkType>Basic</linkType>
+        </graphicData>
+        <repairEffect>ConstructDirt</repairEffect>
+    </ThingDef>
+<!--==============/STONE PARENT END/==============-->
+    
+    <!--[BRICK FENCE]-->
+    <ThingDef ParentName="StoneFenceBase">
+        <defName>ShortBrick</defName>
+        <label>Brick Fence (short)</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <costStuffCount>2</costStuffCount>
+        <statBases>
+            <MaxHitPoints>75</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>0.25</fillPercent>
+        <uiIconPath>Things/Fences/Brickfence(short)_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Brickfence(short)</texPath>
+            <linkFlags>
+                <li>Custom7</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Brickfence(short)_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+    <!--[FORTIFIED BRICK FENCE]-->
+    <ThingDef ParentName="StoneFenceBase">
+        <defName>TallBrick</defName>
+        <label>Brick Fence (tall)</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <costStuffCount>3</costStuffCount>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Beauty>0</Beauty>
+        </statBases>
+        <fillPercent>1</fillPercent>
+        <uiIconPath>Things/Fences/Brickfence(tall)_icon</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/Brickfence(tall)</texPath>
+            <linkFlags>
+                <li>Custom8</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/Brickfence(tall)_blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+    </ThingDef>
+
+<!--
+NOTE: Under consideration...
+
+    [STONE/METAL FENCE]
+    <ThingDef ParentName="StoneFenceBase">
+        <defName>StoneMetal</defName>
+        <label>+Metal Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <costStuffCount>2</costStuffCount>
+        <costList>
+            <Steel>2</Steel>
+        </costList>
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+          <Beauty>1</Beauty>
+        </statBases>
+        <fillPercent>0.30</fillPercent>
+        <uiIconPath>Things/Fences/WoodFenceIco</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/WoodFence</texPath>
+            <linkFlags>
+                <li>Custom10</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/WoodFence_Blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+        <repairEffect>Repair</repairEffect>
+    </ThingDef>
+
+    [WOOD/METAL FENCE]
+    <ThingDef ParentName="StoneFenceBase">
+        <defName>StoneWood</defName>
+        <label>+Wood Fence</label>
+        <altitudeLayer>Building</altitudeLayer>
+        <costStuffCount>2</costStuffCount>
+        <costList>
+            <Steel>2</Steel>
+        </costList>
+        <statBases>
+            <MaxHitPoints>75</MaxHitPoints>
+          <Beauty>1</Beauty>
+        </statBases>
+        <fillPercent>1</fillPercent>
+        <uiIconPath>Things/Fences/WoodFenceIco</uiIconPath>
+        <graphicData>
+            <texPath>Things/Fences/WoodFence</texPath>
+            <linkFlags>
+                <li>Custom10</li>
+            </linkFlags>
+        </graphicData>
+        <building>
+            <blueprintGraphicData>
+                <texPath>Things/Fences/WoodFence_Blueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+        <repairEffect>Repair</repairEffect>
+    </ThingDef>
+-->
+ 
+</Defs>

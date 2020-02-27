@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- Fence Desc -->
+	<CloseboardDesc>A tall sturdy fence big enough to be considered a wall.</CloseboardDesc>
+	<SolidDesc>A fence made of wooden planks high enough to keep rabbits at bay.</SolidDesc>
+	<PicketDesc>A decorative fence to show off your greener side of land.</PicketDesc>
+	<FarmDesc>A farm fence capable of restraining even the wisest Thrumbo.</FarmDesc>
+	<BarDesc>A very restrictive fence used to divide lands... or as prison bars.</BarDesc>
+	<TallChainlinkDesc>A tall steel grated fence that is easy to shoot through.</TallChainlinkDesc>
+	<ShortBrickDesc>A short and sturdy fence that blends nicely beside paths. </ShortBrickDesc>
+	<TallBrickDesc>A fortified stone fence capable of withstanding raids.</TallBrickDesc>
+
+	<!-- Fence Gate Desc -->
+	<CloseboardGateDesc>A tall sturdy fence big enough to be considered a wall.</CloseboardGateDesc>
+	<SolidGateDesc>A fence made of wooden planks high enough to keep rabbits at bay.</SolidGateDesc>
+	<PicketGateDesc>A decorative fence to show off your greener side of land.</PicketGateDesc>
+	<FarmGateDesc>A farm fence capable of restraining even the wisest Thrumbo.</FarmGateDesc>
+	<BarGateDesc>A very restrictive fence used to divide lands... or as prison bars.</BarGateDesc>
+	<TallChainlinkGateDesc>A tall steel grated fence that is easy to shoot through.</TallChainlinkGateDesc>
+	<ShortBrickGateDesc>A short and sturdy fence that blends nicely beside paths. </ShortBrickGateDesc>
+	<TallBrickGateDesc>A fortified stone fence capable of withstanding raids.</TallBrickGateDesc>
+	
+	<!--Settings Desc-->
+	<RestartNote>NOTE: RESTART TO APPLY CHANGES</RestartNote>
+	<CostDesc>Cost: the amount of resources needed to build a fence.</CostDesc>
+	<MHPDesc>BaseHP: the base HP of a fence that is multiplied with the material multiplier.</MHPDesc>
+	<BDesc>Beauty: the rate of how enjoyable a fence is to look at.</BDesc>
+	<FPDesc>Fill(%): the percent of cover a fence provide. NOTE: Sandbag is 65%</FPDesc>
+	<PCDesc>PathCost: the cost of movement required to pass through a fence.</PCDesc>
+	<PDesc>Passability: a fence's state of being passable. \n 1 = Impassable \n 2 = PassThroughOnly \n 3 = Standable</PDesc>
+
+	<!--Extra Options-->
+	<FenceLinkable>Allow fences to link with walls: </FenceLinkable>
+	<FenceRoofable>Allow fences to support roof: </FenceRoofable>
+</LanguageData>
